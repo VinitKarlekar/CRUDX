@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-*^vy3z*od$e*c$il^s#6&m^*!ea&5-)3j*ukgyh^r7^p-4!c8t
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://crudx-8p5v.onrender.com', 'https://crudx-fawn.vercel.app/']
+ALLOWED_HOSTS = ['.onrender.com', '.vercel.app/']
 
 
 # Application definition
