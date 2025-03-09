@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-*^vy3z*od$e*c$il^s#6&m^*!ea&5-)3j*ukgyh^r7^p-4!c8t'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['.onrender.com', '.vercel.app','127.0.0.1']
 
@@ -79,10 +79,13 @@ WSGI_APPLICATION = 'CRUDX.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'your_database_name',  # Replace with your database name
+        'USER': 'your_database_user',  # Replace with your database user
+        'PASSWORD': 'your_database_password',  # Replace with your database password
+        'HOST': 'your_database_host',  # Replace with your database host
+        'PORT': '5432',  # Default PostgreSQL port
     }
-    
 }
 
 
