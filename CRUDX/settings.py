@@ -79,13 +79,10 @@ WSGI_APPLICATION = 'CRUDX.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'your_database_name',  # Replace with your database name
-        'USER': 'your_database_user',  # Replace with your database user
-        'PASSWORD': 'your_database_password',  # Replace with your database password
-        'HOST': 'your_database_host',  # Replace with your database host
-        'PORT': '5432',  # Default PostgreSQL port
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
+    
 }
 
 
