@@ -1,0 +1,39 @@
+{% extends 'webapp/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="container bg-light shadow-md p-5 form-layout">
+        <h3> Update record </h3>
+        <hr>
+        <br>
+
+        <form method="POST" autocomplete="off">
+            {% csrf_token %}
+
+            <!-- Render form fields using crispy forms -->
+            {{ form.first_name|as_crispy_field }}
+            <br>
+            {{ form.last_name|as_crispy_field }}
+            <br>
+            {{ form.email|as_crispy_field }}
+            <br>
+            {{ form.phone|as_crispy_field }}
+            <br>
+
+            <button type="submit" class="btn btn-primary w-100 btn-block p-2">
+                Update record &nbsp; <i class="fa fa-check" aria-hidden="true"></i>
+            </button>
+        </form>
+
+        <br>
+
+        <div class="text-center">
+            <a href="{% url 'dashboard' %}" class="btn btn-secondary">
+                Return &nbsp; <i class="fa fa-arrow-left" aria-hidden="true"></i>
+            </a>
+        </div>
+    </div>
+
+    <br>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CRUDX</title>
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+
+<body>
+    <!-- Navbar -->
+    {% include 'webapp/navbar.html' %}
+
+    <!-- Main Content Area -->
+    <div class="container">
+        <div class="content-wrapper">
+            
+            <!-- Notification Messages -->
+            {% for message in messages %}
+                {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+                    <div class="alert-success">
+                        <i class="fa fa-check-circle"></i> &nbsp; {{ message }}
+                    </div>
+                {% endif %}
+            {% endfor %}
+
+            {% block content %}
+            {% endblock %}
+
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{% static 'js/app.js' %}"></script>
+</body>
+
+</html>
