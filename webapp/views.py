@@ -36,7 +36,7 @@ def register(request):
             messages.success(request, "Account created successfully!")
             return redirect("my-login")
         else:
-            # Add error messages for invalid form
+            
             for field, errors in form.errors.items():
                 for error in errors:
                     messages.error(request, f"{field}: {error}")
@@ -55,7 +55,7 @@ def my_login(request):
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
-                return redirect('dashboard')  # Redirect to the dashboard or home page
+                return redirect('dashboard')  
             else:
                 messages.error(request, 'Invalid username or password.')
         else:
@@ -69,7 +69,7 @@ def my_login(request):
 
 @login_required
 def dashboard(request):
-    records = Record.objects.filter(user=request.user)  # Filter records by the logged-in user
+    records = Record.objects.filter(user=request.user)  
     context = {'records': records}
     return render(request, 'webapp/dashboard.html', context)
 
@@ -82,7 +82,7 @@ def create_record(request):
         form = CreateRecordForm(request.POST)
         if form.is_valid():
             record = form.save(commit=False)
-            record.user = request.user  # Set the user to the currently logged-in user
+            record.user = request.user  
             record.save()
             return redirect('dashboard')
     else:
